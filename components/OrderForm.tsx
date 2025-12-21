@@ -18,6 +18,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ onSubmit }) => {
     contactName: '',
     zipCode: '',
     address: '',
+    addressDetail: '',
     phoneNumber: '',
     transferName: '',
     placardName: '',
@@ -215,7 +216,7 @@ export const OrderForm: React.FC<OrderFormProps> = ({ onSubmit }) => {
             </label>
             <input 
               required name="zipCode" 
-              placeholder="例：1234567" 
+              placeholder="郵便番号から自動入力されます" 
               value={formData.zipCode} 
               onChange={handleChange} 
               className={`${inputClass} pr-10`}
@@ -241,24 +242,39 @@ export const OrderForm: React.FC<OrderFormProps> = ({ onSubmit }) => {
           </div>
         </div>
 
-        <div>
-          <label className={labelClass}>住所</label>
-          <input 
-            required name="address" 
-            value={formData.address} 
-            onChange={handleChange} 
-            placeholder="郵便番号から自動入力されます"
-            className={`${inputClass} ${formData.address ? 'bg-pink-50/30' : ''}`} 
-          />
+        <div className="space-y-4">
+          <div>
+            <label className={labelClass}>住所</label>
+            <input 
+              required name="address" 
+              value={formData.address} 
+              onChange={handleChange} 
+              placeholder="郵便番号から自動入力されます"
+              className={`${inputClass} ${formData.address ? 'bg-pink-50/30' : ''}`} 
+            />
+          </div>
+          <div>
+            <label className={labelClass}>枝番・建物名・号室</label>
+            <input 
+              required name="addressDetail" 
+              value={formData.addressDetail} 
+              onChange={handleChange} 
+              placeholder="例：1-2-3 ○○マンション 101号室"
+              className={inputClass} 
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className={labelClass}>振込名義人</label>
+            <label className={labelClass}>
+              振込名義人 <span className="text-[10px] font-normal text-pink-500 italic">（カタカナで入力してください）</span>
+            </label>
             <input 
               required name="transferName" 
               value={formData.transferName} 
               onChange={handleChange} 
+              placeholder="例：ヤマダ タロウ"
               className={inputClass} 
             />
           </div>

@@ -8,6 +8,7 @@ export interface OrderData {
   contactName: string;
   zipCode: string;
   address: string;
+  addressDetail: string; // 枝番・建物名など
   phoneNumber: string;
   transferName: string;
   placardName: string;

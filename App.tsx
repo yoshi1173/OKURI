@@ -23,9 +23,6 @@ const App: React.FC = () => {
 
   const handleOrderSubmit = (data: OrderData) => {
     setLastOrder(data);
-    // Simulate sending emails logic
-    console.log("Sending auto-reply to:", data.email);
-    console.log("Notifying admin emails:", settings.adminEmails);
     setView(AppView.SUCCESS);
   };
 
@@ -71,6 +68,7 @@ const App: React.FC = () => {
         {view === AppView.SUCCESS && lastOrder && (
           <SuccessView 
             order={lastOrder} 
+            adminEmails={settings.adminEmails}
             onReset={() => setView(AppView.ORDER_FORM)} 
           />
         )}
