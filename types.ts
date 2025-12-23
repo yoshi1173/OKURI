@@ -8,16 +8,23 @@ export interface OrderData {
   contactName: string;
   zipCode: string;
   address: string;
-  addressDetail: string; // 枝番・建物名など
+  addressDetail: string;
   phoneNumber: string;
   transferName: string;
   placardName: string;
   email: string;
+  remarks?: string;
+  hasSpecialChars: boolean;
 }
 
 export interface AdminSettings {
   passcode: string;
   adminEmails: string[];
+  emailServiceId: string;
+  emailTemplateIdAdmin: string;
+  emailTemplateIdCustomer: string;
+  emailPublicKey: string;
+  isLocked: boolean; // 編集ロック状態を保存
 }
 
 export enum AppView {
